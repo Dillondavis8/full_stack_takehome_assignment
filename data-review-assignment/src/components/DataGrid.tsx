@@ -9,6 +9,7 @@ import {
 } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 import ErrorSummaryCellRenderer from "./cell_renderers/ErrorSummaryCellRenderer";
+import { CSV_PARAMS } from "../consts/csv";
 import DataGridProps  from "../interfaces/dataGrid";
 import { Button } from "@headlessui/react";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
@@ -80,7 +81,7 @@ export default function DataGrid<T>({ data, loading }: DataGridProps<T>): JSX.El
 
   // Grid CSV Export: Exports the grid data to a CSV file.
   const exportCsv = () => {
-    gridRef.current!.api.exportDataAsCsv();
+    gridRef.current!.api.exportDataAsCsv(CSV_PARAMS);
   }
 
   return (
