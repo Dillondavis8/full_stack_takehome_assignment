@@ -9,17 +9,14 @@ import {
 } from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 import ErrorSummaryCellRenderer from "./cell_renderers/ErrorSummaryCellRenderer";
+import DataGridProps  from "../interfaces/dataGrid";
 import { Button } from "@headlessui/react";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
 
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
 
-interface DataGridProps<T> {
-  data: T[];
-}
-
-export default function DataGrid<T>({ data }: DataGridProps<T>): JSX.Element {
+export default function DataGrid<T>({ data, loading }: DataGridProps<T>): JSX.Element {
   const gridRef = useRef<AgGridReact>(null);
   // Column Definitions: Defines the columns to be displayed.
   const [colDefs] = useState<ColDef[]>([
@@ -103,6 +100,7 @@ export default function DataGrid<T>({ data }: DataGridProps<T>): JSX.Element {
         columnDefs={colDefs}
         autoSizeStrategy={autoSizeStrategy}
         tooltipShowDelay={500}
+        loading={loading}
       />
     </div>
   )
