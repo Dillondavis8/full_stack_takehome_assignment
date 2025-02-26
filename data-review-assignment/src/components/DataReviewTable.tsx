@@ -6,9 +6,9 @@ import DataGrid from "./DataGrid";
 
 export default function DataReviewTable() {
   // Loading State: Indicates if the data is being fetched
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   // Error State: Stores any errors that occur during data fetching.
-  const [error, setError] = useState<unknown>(null);
+  const [, setError] = useState<unknown>(null);
   // Row Data: The data to be displayed.
   const [rowData, setRowData] = useState([]);
 

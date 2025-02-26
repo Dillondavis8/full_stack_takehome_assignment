@@ -15,10 +15,14 @@ import { DocumentTextIcon } from "@heroicons/react/24/outline";
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
 
-export default function DataGrid({ data }: any): any {
+interface DataGridProps<T> {
+  data: T[];
+}
+
+export default function DataGrid<T>({ data }: DataGridProps<T>): JSX.Element {
   const gridRef = useRef<AgGridReact>(null);
   // Column Definitions: Defines the columns to be displayed.
-  const [colDefs, setColDefs] = useState<ColDef[]>([
+  const [colDefs] = useState<ColDef[]>([
     {
       field: "name", tooltipValueGetter: (p: ITooltipParams) =>
         p.data.errors?.name?.message, cellStyle: params => styleCell(params.data.errors?.name?.severity)
@@ -65,9 +69,9 @@ export default function DataGrid({ data }: any): any {
   }, []);
 
   // Cell Style: Defines the style of the cell based on the severity of the error.
-  const styleCell = (severity: any): CellStyle => {
+  const styleCell = (severity: string): CellStyle => {
     // Base Cell Style
-    let cellStyle = { display: "flex", alignItems: "center" }
+    const cellStyle = { display: "flex", alignItems: "center" }
     if (!severity) {
       return {...cellStyle, backgroundColor: 'rgb(142, 208, 129, .8)'}
     } else if (severity === 'critical') {

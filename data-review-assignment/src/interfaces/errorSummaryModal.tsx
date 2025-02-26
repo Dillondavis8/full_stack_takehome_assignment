@@ -1,5 +1,5 @@
-interface ErrorSummaryModalProps {
+export default interface ErrorSummaryModalProps {
   isOpen: boolean;
-  errors: any;
+  errors: unknown;
   toggleModal: () => void;
 }

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Modal from 'react-modal';
+import ErrorSummaryModalProps from '../../interfaces/errorSummaryModal';
 import { XMarkIcon, ExclamationCircleIcon, ExclamationTriangleIcon } from '@heroicons/react/24/solid';
 
 if (typeof (window) !== 'undefined') {
@@ -33,7 +34,7 @@ export default function ErrorSummaryModal({ isOpen, errors, toggleModal }: Error
   });
   // Groups sorted errors messages into critical and warning categories
   const groupedErrors: Record<string, string[]> = sortedErrors.reduce(
-    (acc: Record<string, string[]>, [key, { message, severity }]) => {
+    (acc: Record<string, string[]>, [, { message, severity }]) => {
       acc[severity] = acc[severity] || [];
       acc[severity].push(message);
       return acc;

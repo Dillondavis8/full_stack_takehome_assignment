@@ -7,7 +7,7 @@ import { Button } from '@headlessui/react'
 import { NewspaperIcon } from '@heroicons/react/24/outline';
 
 
-export default (params: ErrorSummaryCellRendererParams) => {
+export default function ErrorSummaryCellRenderer(params: ErrorSummaryCellRendererParams) {
   const [openModal, setOpenModal] = useState(false);
   const errors = params.data.errors
 
