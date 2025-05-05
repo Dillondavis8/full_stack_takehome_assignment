@@ -25,7 +25,6 @@ export default function ErrorSummaryCellRenderer(params: ErrorSummaryCellRendere
         <ErrorSummaryModal isOpen={openModal} errors={errors} toggleModal={handleOpenModal}
       />
       }
-      
     </div>
   );
 };

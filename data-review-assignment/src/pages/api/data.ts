@@ -1,8 +1,8 @@
 // pages/api/data.ts
 
-import { MOCK_DATA } from "@/src/consts/data";
+// import { MOCK_DATA } from "@/src/consts/data";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json(MOCK_DATA);
+  // res.status(200).json(MOCK_DATA);
 }
